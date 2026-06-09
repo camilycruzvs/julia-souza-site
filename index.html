@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Designer | Júlia Souza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="particulas">
+
+    </div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Designs</a>
+            </li>
+            <li>
+                <a href="#contatos" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+        <div>
+            <img src="img/me.jpeg" alt="Foto perfil" class="foto-perfil">
+            <h1>Júlia Souza</h1>
+            <p class="cabecalho-subTitulo">Nail Designer</p>
+        </div>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre mim</h2>
+        <div class="sobre-conteudo">
+            <p class="sobre-paragrafo">Olá! Nail Designer dedicada a realçar a beleza e autoestima das minhas clientes
+                através de técnicas modernas de alongamento, esmaltação e nail art. Trabalho com cuidado, criatividade e
+                atenção aos detalhes, oferecendo resultados duradouros e personalizados.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Trabalhos</h2>
+        <div class="projetos-conteudo">
+            <div class="projetos-foto">
+                <img src="img/emgel.jpeg" alt="Esmaltação em Gel" class="projetos-imagem">
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Esmaltação em Gel</h3>
+                </div>
+            </div>
+
+            <div class="projetos-foto">
+                <img src="img/molde.jpeg" alt="Molde F1" class="projetos-imagem">
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Molde F1</h3>
+                </div>
+            </div>
+
+            <div class="projetos-foto">
+                <img src="img/postica.jpeg" alt="Postiça Realista" class="projetos-imagem">
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Postiça Realista</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulos">Contatos</h2>
+        <div class="links">
+
+
+            <a href="https://www.instagram.com/designs.dajulia?igsh=cmVreDZpbnRmaXRk" target="_blank">Instagram</a>
+
+
+            <a href="https://maps.app.goo.gl/HQgNn8gkMfCCpr6o7?g_st=aw" target="_blank">Localização</a>
+
+
+        </div>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Agende por aqui!" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar</button>
+        </form>
+
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault()
+
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5599984683394'
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            window.open(url, '_blank')
+        }
+
+    </script>
+
+</body>
+
+</html>

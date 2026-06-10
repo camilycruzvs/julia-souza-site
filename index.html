@@ -90,7 +90,7 @@
                 <input placeholder="Nome" class="campo-form" id="nome">
             </div>
             <div class="grupo-form">
-                <textarea class="campo-form" placeholder="Agende por aqui!" id="mensagem"></textarea>
+                <textarea class="campo-form" placeholder="Digite o Procedimento Desejado!" id="mensagem"></textarea>
             </div>
 
             <button type="submit" class="botao-form">Enviar</button>
@@ -105,9 +105,9 @@
 
             const nome = document.getElementById('nome').value;
             const mensagem = document.getElementById('mensagem').value;
-            const telefone = '5599984683394'
+            const telefone = '5599991064881'
 
-            const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+            const texto = `Olá! Me chamo ${nome}, Gostaria de agendar um horário para ${mensagem}`
             const msgFormatada = encodeURIComponent(texto)
 
             const url = `https://wa.me/${telefone}?text=${msgFormatada}`

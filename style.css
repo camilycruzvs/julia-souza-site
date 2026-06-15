@@ -10,12 +10,12 @@ html {
 }
 
 :root {
-    --primaria: #7350F2;
-    --secundaria: #C4BDF2;
-    --escuro: #473197;
-    --maisEcuro: #2a1d5b;
-    --claro: #e2e8f0;
-    --vidro: rgba(255, 255, 255, 0.1);
+    --primaria: #FFFFFF;
+    --secundaria: #FAFBFC;
+    --escuro: #d0d4db42;
+    --maisEcuro: #a5adbb83;
+    --claro: #F8FBFF;
+    --vidro: rgba(255, 255, 255, 0.75);
 }
 
 body {
@@ -26,7 +26,7 @@ body {
 .navegacao {
     position: fixed;
     top: 0;
-    background: rgba(46, 31, 86, 0.8);
+    background: #919c9ea4;
     width: 100%;
     z-index: 100;
     padding: 20px;
@@ -73,7 +73,7 @@ body {
 .foto-perfil {
     width: 300px;
     height: 300px;
-    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 20px rgba(182, 227, 232, 0.401);
     border-radius: 50%;
     border: 4px solid var(--vidro);
     animation: flutuar 5s ease-in-out infinite;
@@ -81,41 +81,58 @@ body {
 
 h1 {
     font-size: 3.5rem;
-    color: var(--primaria);
+    color: #daa520;
     font-weight: bold;
     margin: 20px;
 }
 
 .cabecalho-subTitulo {
     font-size: 1.3rem;
-    color: var(--claro);
+    color: #daa520be;
     text-align: center;
+}
+
+.foto-eu > img {
+    width: 350px;
+    height: 350px;
+    box-shadow: 0 0 20px rgba(182, 227, 232, 0.401);
+    border-radius: 10%;
+    border: 4px solid var(--vidro);
+    margin-left: 10px;
 }
 
 .sobre {
+    display: flex;           
+    justify-content: center;
+    align-items: center;   
+    gap: 4rem; 
     padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .sobre-titulo {
+    font-family: var(--fonte03);
     font-size: 3rem;
-    color: var(--claro);
-    text-align: center;
+    color: #daa520;
+    text-align: left;
     margin-bottom: 20px;
 }
 
 .sobre-conteudo {
     padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
     border-radius: 16px;
     border: 1px solid var(--vidro);
     backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.386);
 }
 
 .sobre-paragrafo {
-    text-align: center;
+    text-align: left;
     font-size: 1rem;
+    color: #daa520be;
+    max-width: 500px;
+    margin: 0;
 }
 
 .projetos {
@@ -125,7 +142,8 @@ h1 {
 .projetos-titulo {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
+    color: #daa520be;
 }
 
 .projetos-conteudo {
@@ -137,7 +155,7 @@ h1 {
 }
 
 .projetos-foto {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.311);
     border-radius: 15px;
     backdrop-filter: blur(5px);
     border: 1px solid var(--vidro);
@@ -147,7 +165,7 @@ h1 {
 }
 
 .projetos-foto:hover {
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    box-shadow: 0 10px 20px rgba(122, 144, 156, 0.675);
     transform: translateY(-10px) scale(1.03);
 }
 
@@ -169,6 +187,7 @@ h1 {
 
 .info-projetos {
     margin-bottom: 5px;
+    color: #daa520be;
 }
 
 .contatos {
@@ -179,6 +198,7 @@ h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
+    color: #daa520;
 }
 
 .links {
@@ -189,7 +209,7 @@ h1 {
 }
 
 .links > a {
-    color: var(--claro);
+     color: #daa520be;
 }
 
 i {
@@ -199,7 +219,7 @@ i {
 .formulario-contato {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.223);
     backdrop-filter: blur(5px);
     padding: 2rem;
     border: 1px solid var(--vidro);
@@ -209,7 +229,7 @@ i {
 .campo-form {
     width: 100%;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(212, 223, 222, 0.522);
     border-radius: 8px;
     color: var(--claro);
     border: 1px solid var(--vidro);
@@ -218,7 +238,7 @@ i {
 
 .campo-form:focus {
     border-color: var(--secundaria);
-    box-shadow: 0 0 10px #4f46e54d;
+    box-shadow: 0 0 10px #46c3e544;
 }
 
 .grupo-form {
@@ -226,7 +246,7 @@ i {
 }
 
 .botao-form {
-    color: var(--claro);
+    color: #daa520be;
     background: linear-gradient(45deg, var(--primaria, --secundaria));
     padding: 1rem 2rem;
     border: none;
@@ -239,7 +259,7 @@ i {
 
 .botao-form:hover {
     transform: translateY(-4px);
-    box-shadow: 0 5px 15px #4f46e566;
+    box-shadow: 0 5px 15px #46c3e51e;
 }
 
 .particulas {
@@ -262,5 +282,22 @@ i {
     }
     50% {
         transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 850px) {
+    .sobre {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .sobre-texto {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .sobre-titulo,
+    .sobre-paragrafo {
+        text-align: center;
     }
 }

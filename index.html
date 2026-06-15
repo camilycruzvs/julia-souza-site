@@ -22,7 +22,7 @@
                 <a href="#sobre" class="menu-link">Sobre</a>
             </li>
             <li>
-                <a href="#projetos" class="menu-link">Designs</a>
+                <a href="#projetos" class="menu-link">Procedimentos</a>
             </li>
             <li>
                 <a href="#contatos" class="menu-link">Contato</a>
@@ -32,24 +32,30 @@
 
     <main id="inicio" class="cabecalho">
         <div>
-            <img src="img/me.jpeg" alt="Foto perfil" class="foto-perfil">
+            <img src="img/logo.png" alt="Foto logo" class="foto-perfil">
             <h1>Júlia Souza</h1>
             <p class="cabecalho-subTitulo">Nail Designer</p>
         </div>
     </main>
 
+
     <section id="sobre" class="sobre">
-        <h2 class="sobre-titulo">Sobre mim</h2>
+        <div class="foto-eu">
+            <img src="img/me.png" alt="Foto perfil">
+        </div>
+
+
         <div class="sobre-conteudo">
-            <p class="sobre-paragrafo">Olá! Nail Designer dedicada a realçar a beleza e autoestima das minhas clientes
+            <h2 class="sobre-titulo">Sobre mim</h2>
+            <p class="sobre-paragrafo">Nail Designer dedicada a realçar a beleza e autoestima das minhas clientes
                 através de técnicas modernas de alongamento, esmaltação e nail art. Trabalho com cuidado, criatividade e
                 atenção aos detalhes, oferecendo resultados duradouros e personalizados.</p>
         </div>
     </section>
 
     <section id="projetos" class="projetos">
-        <h2 class="projetos-titulo">Meus Trabalhos</h2>
-        <div class="projetos-conteudo">
+        <h2 class="projetos-titulo">Procedimentos</h2>
+        <div class="projetos-conteudo" data-procedimento="Esmaltação em Gel">
             <div class="projetos-foto">
                 <img src="img/emgel.jpeg" alt="Esmaltação em Gel" class="projetos-imagem">
                 <div class="caixa-texto-projetos">
@@ -57,14 +63,21 @@
                 </div>
             </div>
 
-            <div class="projetos-foto">
-                <img src="img/molde.jpeg" alt="Molde F1" class="projetos-imagem">
+            <div class="projetos-foto" data-procedimento="Banho em Gel">
+                <img src="img/banho.png" alt="Banho em Gel" class="projetos-imagem">
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Banho em Gel</h3>
+                </div>
+            </div>
+
+            <div class="projetos-foto" data-procedimento="Molde F1">
+                <img src="img/molde.png" alt="Molde F1" class="projetos-imagem">
                 <div class="caixa-texto-projetos">
                     <h3 class="info-projetos">Molde F1</h3>
                 </div>
             </div>
 
-            <div class="projetos-foto">
+            <div class="projetos-foto" data-procedimento="Postiça Realista">
                 <img src="img/postica.jpeg" alt="Postiça Realista" class="projetos-imagem">
                 <div class="caixa-texto-projetos">
                     <h3 class="info-projetos">Postiça Realista</h3>
@@ -72,6 +85,17 @@
             </div>
         </div>
     </section>
+
+    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+        <div class="grupo-form">
+            <input placeholder="Nome" class="campo-form" id="nome">
+        </div>
+        <div class="grupo-form">
+            <textarea class="campo-form" placeholder="Selecione o Procedimento Desejado!" id="mensagem"></textarea>
+        </div>
+
+        <button type="submit" class="botao-form">Agendar</button>
+    </form>
 
     <section id="contatos" class="contatos">
         <h2 class="contatos-titulos">Contatos</h2>
@@ -85,34 +109,60 @@
 
 
         </div>
-        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
-            <div class="grupo-form">
-                <input placeholder="Nome" class="campo-form" id="nome">
-            </div>
-            <div class="grupo-form">
-                <textarea class="campo-form" placeholder="Digite o Procedimento Desejado!" id="mensagem"></textarea>
-            </div>
-
-            <button type="submit" class="botao-form">Enviar</button>
-        </form>
 
     </section>
 
     <script>
+        const whatsappNumero = "5599984683394"; // Substitua pelo seu número real
+
+        // 1 - Selecionar procedimento ao clicar
+        document.querySelectorAll('.projetos-foto').forEach(function (procedimento) {
+            procedimento.addEventListener('click', function () {
+                // Pegar o procedimento do atributo data
+                const procedimentoSelecionado = this.getAttribute('data-procedimento');
+
+                // Preencher automaticamente o textarea
+                document.getElementById('mensagem').value = procedimentoSelecionado;
+
+                // Remover seleção anterior
+                document.querySelectorAll('.projetos-foto').forEach(p => p.classList.remove('selecionado'));
+
+                // Adicionar classe de seleção visual
+                this.classList.add('selecionado');
+            });
+        });
+
+        // 2 - Função para enviar via WhatsApp
         function enviarWhats(event) {
-            event.preventDefault()
+            event.preventDefault(); // Impedir envio tradicional do formulário
 
+            const nome = document.getElementById('nome').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
 
-            const nome = document.getElementById('nome').value;
-            const mensagem = document.getElementById('mensagem').value;
-            const telefone = '5599991064881'
+            // 3 - Validar nome (obrigatório)
+            if (!nome) {
+                alert('Por favor, preencha seu nome!');
+                document.getElementById('nome').focus();
+                return;
+            }
 
-            const texto = `Olá! Me chamo ${nome}, Gostaria de agendar um horário para ${mensagem}`
-            const msgFormatada = encodeURIComponent(texto)
+            // Validar procedimento selecionado
+            if (!mensagem) {
+                alert('Por favor, selecione um procedimento!');
+                return;
+            }
 
-            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+            // Criar mensagem formatada
+            const texto = `Olá! Meu nome é ${nome} agendar procedimento: ${mensagem}`;
 
-            window.open(url, '_blank')
+            // Codificar para URL
+            const textoEncoded = encodeURIComponent(texto);
+
+            // Criar link do WhatsApp
+            const linkWhats = `https://wa.me/${whatsappNumero}?text=${textoEncoded}`;
+
+            // 4 - Redirecionar para o WhatsApp
+            window.open(linkWhats, '_blank');
         }
 
     </script>

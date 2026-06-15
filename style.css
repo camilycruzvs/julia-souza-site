@@ -231,7 +231,7 @@ i {
     padding: 1rem;
     background: rgba(212, 223, 222, 0.522);
     border-radius: 8px;
-    color: var(--claro);
+    color: #daa520;
     border: 1px solid var(--vidro);
     outline: none;
 }
